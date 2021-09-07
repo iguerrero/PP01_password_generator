@@ -1,6 +1,7 @@
 # Simple Password Generator
 import string
 import random
+import pyperclip
 
 def generate_password(length=8, addsyms=True, addnums=True):
     '''
@@ -16,7 +17,8 @@ def generate_password(length=8, addsyms=True, addnums=True):
         nums = string.digits
     for _ in range(length):
         passwd += random.choice(string.ascii_letters + nums + syms)
-    print(passwd)
+    print(f'La contraseña {passwd} ha sido copiada al portapapeles')
+    pyperclip.copy(passwd)
 
 # if __name__=='__main__':
 generate_password()
